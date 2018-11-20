@@ -211,6 +211,10 @@
     <Compile Include="Migrations\201811200259441_UserPassPeluquero.Designer.cs">
       <DependentUpon>201811200259441_UserPassPeluquero.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201811200349300_AddAnotacionesPeluquero.cs" />
+    <Compile Include="Migrations\201811200349300_AddAnotacionesPeluquero.Designer.cs">
+      <DependentUpon>201811200349300_AddAnotacionesPeluquero.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Cliente.cs" />
     <Compile Include="Models\Peluquero.cs" />
@@ -254,6 +258,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201811200259441_UserPassPeluquero.resx">
       <DependentUpon>201811200259441_UserPassPeluquero.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811200349300_AddAnotacionesPeluquero.resx">
+      <DependentUpon>201811200349300_AddAnotacionesPeluquero.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

@@ -11,7 +11,6 @@ namespace TurnosPeluqueria.Controllers
     {
         private PeluqueriaContexto db = new PeluqueriaContexto();
 
-        // Prueba del commit
         // GET: Admin
         public ActionResult Turnos()
         {

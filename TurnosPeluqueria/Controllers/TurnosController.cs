@@ -32,8 +32,19 @@ namespace TurnosPeluqueria.Controllers
             {
                 using (PeluqueriaContexto db = new PeluqueriaContexto())
                 {
-                    db.Clientes.Add(cliente);
-                    db.SaveChanges();
+                    var usr = db.Clientes.Where(u => u.User == cliente.User).FirstOrDefault();
+
+                    if (usr == null)
+                    {
+                        db.Clientes.Add(cliente);
+                        db.SaveChanges();
+                    }
+                    else
+                    {
+                        ModelState.AddModelError("", "Elija otro nombre de usuario");
+                        return View();
+                    }
+                    
                 }
                 ModelState.Clear();
                 return RedirectToAction("Login");

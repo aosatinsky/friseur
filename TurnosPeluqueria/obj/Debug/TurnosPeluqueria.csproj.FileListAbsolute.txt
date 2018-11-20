@@ -87,3 +87,4 @@ C:\Users\agust\source\repos\TurnosPeluqueria\TurnosPeluqueria\obj\Debug\TurnosPe
 C:\Users\agust\source\repos\TurnosPeluqueria\TurnosPeluqueria\obj\Debug\TurnosPeluqueria.Migrations.AgregarPassw.resources
 C:\Users\agust\source\repos\TurnosPeluqueria\TurnosPeluqueria\obj\Debug\TurnosPeluqueria.Migrations.CambioEmail.resources
 C:\Users\agust\source\repos\TurnosPeluqueria\TurnosPeluqueria\obj\Debug\TurnosPeluqueria.Migrations.UserPassPeluquero.resources
+C:\Users\agust\source\repos\TurnosPeluqueria\TurnosPeluqueria\obj\Debug\TurnosPeluqueria.Migrations.AddAnotacionesPeluquero.resources
