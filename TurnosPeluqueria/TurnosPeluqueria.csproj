@@ -136,6 +136,7 @@
     <Content Include="Content\bootstrap-reboot.css.map" />
     <Content Include="Content\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap-grid.css.map" />
+    <None Include="Properties\PublishProfiles\friseur - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-3.0.0-vsdoc.js" />
     <Content Include="Scripts\jquery-3.0.0.js" />
     <Content Include="Scripts\jquery-3.0.0.min.js" />
@@ -155,7 +156,9 @@
     <Content Include="Scripts\umd\popper.js" />
     <Content Include="Scripts\umd\popper.min.js" />
     <Content Include="videos\byn.mp4" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Scripts\umd\popper.min.js.map" />
     <Content Include="Scripts\umd\popper.js.map" />
     <Content Include="Scripts\umd\popper-utils.min.js.map" />
@@ -173,6 +176,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\TurnosController.cs" />
     <Compile Include="Datos\PeluqueriaContexto.cs" />
@@ -203,6 +207,10 @@
     <Compile Include="Migrations\201811191835269_CambioEmail.Designer.cs">
       <DependentUpon>201811191835269_CambioEmail.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201811200259441_UserPassPeluquero.cs" />
+    <Compile Include="Migrations\201811200259441_UserPassPeluquero.Designer.cs">
+      <DependentUpon>201811200259441_UserPassPeluquero.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Cliente.cs" />
     <Compile Include="Models\Peluquero.cs" />
@@ -214,6 +222,7 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.0.0.slim.min.map" />
     <Content Include="Scripts\jquery-3.0.0.min.map" />
+    <Content Include="Views\Admin\Turnos.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -242,6 +251,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201811191835269_CambioEmail.resx">
       <DependentUpon>201811191835269_CambioEmail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811200259441_UserPassPeluquero.resx">
+      <DependentUpon>201811200259441_UserPassPeluquero.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
