@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -8,14 +9,32 @@ using TurnosPeluqueria.Models;
 
 namespace TurnosPeluqueria.Controllers
 {
+
     public class TurnosController : Controller
     {
+
         // GET: Turnos
         public ActionResult Index()
         {
             if (Session["UserId"] != null)
             {
-                return View();
+                var hoy = DateTime.Today;
+                var man = (DateTime.Today).AddDays(1);
+                using (PeluqueriaContexto db = new PeluqueriaContexto())
+                {
+                    ViewBag.misTurnos = db.Turnos.Where(u => u.ClienteId.ToString() == Session["UserId"].ToString() 
+                    &&  u.Horario > DateTime.Today);
+                    ViewBag.turnosHoy = db.Turnos.Where(u => DbFunctions.TruncateTime(u.Horario) == hoy.Date).ToList();
+                    ViewBag.turnosMan = db.Turnos.Where(u => DbFunctions.TruncateTime(u.Horario) == man.Date).ToList();
+                    var peluqueros = db.Peluqueros.ToList();
+                    var listaPeluqueros = new SelectList(peluqueros, "ID", "Nombre");
+                    ViewData["listaPeluqueros"] = listaPeluqueros;
+
+                    return View();
+                }
+
+
+                   
             }
             else return RedirectToAction("Login");
         }
@@ -24,7 +43,7 @@ namespace TurnosPeluqueria.Controllers
         {
             return View();
         }
-
+        
         [HttpPost]
         public ActionResult Registro(Cliente cliente)
         {
@@ -58,6 +77,7 @@ namespace TurnosPeluqueria.Controllers
             return View();
         }
 
+
         [HttpPost]
         public ActionResult Login(Cliente cliente)
         {
@@ -68,8 +88,8 @@ namespace TurnosPeluqueria.Controllers
 
                 if (usr != null)
                 {
-                    Session["UserId"] = cliente.Id.ToString();
-                    Session["User"] = cliente.User.ToString();
+                    Session["UserId"] = usr.Id.ToString();
+                    Session["User"] = usr.User.ToString();
                     return RedirectToAction("Index");
                 }
                 else
@@ -91,6 +111,34 @@ namespace TurnosPeluqueria.Controllers
                 }
                 else
                 {
+                return RedirectToAction("Login");
+            }
+
+        }
+        
+        [HttpGet]
+        public ActionResult NuevoTurno(int horario, int userID, int peluqueroID)
+        {
+            if (Session["UserId"] != null && Session["UserId"].ToString() == userID.ToString())
+            {
+                using (PeluqueriaContexto db = new PeluqueriaContexto())
+                {
+                    var cliente = db.Clientes.Where(u => u.Id == userID).First();
+                    var peluquero = db.Peluqueros.Where(u => u.Id == peluqueroID).First();
+                    Turno turno = new Turno
+                    {
+                        Cliente = cliente,
+                        Peluquero = peluquero,
+                        Horario = new DateTime(DateTime.Today.Year, DateTime.Today.Month, DateTime.Today.Day, horario, 0, 0)
+                };
+                    db.Turnos.Add(turno);
+                    db.SaveChanges();
+                }
+                
+                return RedirectToAction("Index");
+            }
+            else
+            {
                 return RedirectToAction("Login");
             }
 

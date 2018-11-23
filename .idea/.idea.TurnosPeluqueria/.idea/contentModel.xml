@@ -73,6 +73,9 @@
           <e p="201811200349300_AddAnotacionesPeluquero.cs" t="Include" />
           <e p="201811200349300_AddAnotacionesPeluquero.Designer.cs" t="Include" />
           <e p="201811200349300_AddAnotacionesPeluquero.resx" t="Include" />
+          <e p="201811221533063_Test.cs" t="Include" />
+          <e p="201811221533063_Test.Designer.cs" t="Include" />
+          <e p="201811221533063_Test.resx" t="Include" />
           <e p="Configuration.cs" t="Include" />
         </e>
         <e p="Models" t="Include">

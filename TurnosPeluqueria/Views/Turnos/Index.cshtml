@@ -1,4 +1,5 @@
-﻿
+﻿@using TurnosPeluqueria.Models
+
 @{
     Layout = null;
 }
@@ -62,6 +63,74 @@
 
     <div class="container">
         <h4>Turnos disponibles para hoy</h4>
+
+        <div class="container">
+            <table class="table">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">Horario</th>
+                        <th scope="col">Disponibilidad</th>
+                        <th scope="col">Peluquero</th>
+                        <th scope="col">Reservar</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="align-middle">09:00</td>
+                        @{
+                            DateTime nueve = new DateTime(DateTime.Today.Year, DateTime.Today.Month, DateTime.Today.Day
+                            , 09, 0, 0);
+                            if ((ViewBag.turnosHoy as ICollection<Turno>).Count != 0)
+                            {
+                                var turno9 = ((ViewBag.turnosHoy as ICollection<Turno>).Where(u => u.Horario == nueve)).First();
+                                if (nueve == turno9.Horario)
+                                {
+                                    <td>No</td>
+                                }
+                                else
+                                {
+                                    <td class="align-middle">Si</td>
+                                    <td>@Html.DropDownList("listaPeluqueros", ViewData["listaPeluqueros"] as SelectList, new { @class = "btn btn-light", @id = "listaPeluqueros" })</td>
+                                    <td><div id="display"></div></td>
+                                }
+
+                            }
+                            else
+                            {
+                                <td class="align-middle">Si</td>
+                                <td>@Html.DropDownList("listaPeluqueros", ViewData["listaPeluqueros"] as SelectList, new { @class = "btn btn-light", @id = "listaPeluqueros" })</td>
+                                <td><div id="display"></div></td>
+                                @*<td>@Html.ActionLink("Reservar", "NuevoTurno", "Turnos", routeValues: new { horario = 9, userID = Session["UserId"].ToString(), peluqueroID = 0}, htmlAttributes: new { @class = "btn btn-light", @id="Reservar9"})</td>*@
+                            }
+                        }
+                    </tr>
+                    <tr>
+                        <td>10:00</td>
+                    </tr>
+                    <tr>
+                        <td>11:00</td>
+                    </tr>
+                    <tr>
+                        <td>12:00</td>
+                    </tr>
+                    <tr>
+                        <td>16:00</td>
+                    </tr>
+                    <tr>
+                        <td>17:00</td>
+                    </tr>
+                    <tr>
+                        <td>18:00</td>
+                    </tr>
+                    <tr>
+                        <td>19:00</td>
+                    </tr>
+                    <tr>
+                        <td>30:00</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
 
     <div class="container">
@@ -83,6 +152,7 @@
         </div>
         <hr>
     </div>
+    <script src="~/Scripts/GetSelected.js"></script>
     <script src="~/Scripts/jquery-3.0.0.min.js"></script>
     <script src="~/Scripts/bootstrap.min.js"></script>
 </body>

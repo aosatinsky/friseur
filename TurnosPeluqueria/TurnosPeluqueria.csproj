@@ -138,6 +138,7 @@
     <Content Include="Content\bootstrap-grid.css.map" />
     <None Include="Properties\PublishProfiles\friseur - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-3.0.0-vsdoc.js" />
+    <Content Include="Scripts\GetSelected.js" />
     <Content Include="Scripts\jquery-3.0.0.js" />
     <Content Include="Scripts\jquery-3.0.0.min.js" />
     <Content Include="Scripts\jquery-3.0.0.slim.js" />
@@ -215,6 +216,14 @@
     <Compile Include="Migrations\201811200349300_AddAnotacionesPeluquero.Designer.cs">
       <DependentUpon>201811200349300_AddAnotacionesPeluquero.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201811221533063_Test.cs" />
+    <Compile Include="Migrations\201811221533063_Test.Designer.cs">
+      <DependentUpon>201811221533063_Test.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201811231437460_CambiosTurnos.cs" />
+    <Compile Include="Migrations\201811231437460_CambiosTurnos.Designer.cs">
+      <DependentUpon>201811231437460_CambiosTurnos.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Cliente.cs" />
     <Compile Include="Models\Peluquero.cs" />
@@ -261,6 +270,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201811200349300_AddAnotacionesPeluquero.resx">
       <DependentUpon>201811200349300_AddAnotacionesPeluquero.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811221533063_Test.resx">
+      <DependentUpon>201811221533063_Test.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811231437460_CambiosTurnos.resx">
+      <DependentUpon>201811231437460_CambiosTurnos.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
