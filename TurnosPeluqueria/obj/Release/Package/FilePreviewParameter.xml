@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="IIS Web Application Name" description="" value="friseur" tags="IisApp">
+    <parameterEntry kind="ProviderPath" scope="IisApp" match="^C:\\Users\\agust\\source\\repos\\TurnosPeluqueria\\TurnosPeluqueria\\obj\\Release\\Package\\PackageTmp$" />
+    <parameterEntry kind="ProviderPath" scope="setAcl" match="^C:\\Users\\agust\\source\\repos\\TurnosPeluqueria\\TurnosPeluqueria\\obj\\Release\\Package\\PackageTmp$" />
+  </parameter>
+  <parameter name="Add write permission to App_Data Folder" description="Add write permission to App_Data folder" value="friseur/App_Data" tags="Hidden">
+    <parameterEntry kind="ProviderPath" scope="setAcl" match="^C:\\Users\\agust\\source\\repos\\TurnosPeluqueria\\TurnosPeluqueria\\obj\\Release\\Package\\PackageTmp\\App_Data$" />
+  </parameter>
+  <parameter name="cn-Web.config Connection String" description="" value="Data Source=peluqueriafriseur.database.windows.net;Initial Catalog=peluqueria;User ID=aosatinsky;Password=123Agu123" tags="">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\agust\\source\\repos\\TurnosPeluqueria\\TurnosPeluqueria\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='cn']/@connectionString" />
+  </parameter>
+</parameters>

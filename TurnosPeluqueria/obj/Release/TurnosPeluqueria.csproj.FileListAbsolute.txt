@@ -86,3 +86,12 @@ C:\Users\agust\source\repos\TurnosPeluqueria\TurnosPeluqueria\obj\Release\Turnos
 C:\Users\agust\source\repos\TurnosPeluqueria\TurnosPeluqueria\obj\Release\TurnosPeluqueria.csproj.CopyComplete
 C:\Users\agust\source\repos\TurnosPeluqueria\TurnosPeluqueria\obj\Release\TurnosPeluqueria.dll
 C:\Users\agust\source\repos\TurnosPeluqueria\TurnosPeluqueria\obj\Release\TurnosPeluqueria.pdb
+C:\Users\agust\source\repos\TurnosPeluqueria\TurnosPeluqueria\bin\PagedList.dll
+C:\Users\agust\source\repos\TurnosPeluqueria\TurnosPeluqueria\bin\PagedList.Mvc.dll
+C:\Users\agust\source\repos\TurnosPeluqueria\TurnosPeluqueria\bin\PagedList.xml
+C:\Users\agust\source\repos\TurnosPeluqueria\TurnosPeluqueria\bin\PagedList.Mvc.xml
+C:\Users\agust\source\repos\TurnosPeluqueria\TurnosPeluqueria\obj\Release\TurnosPeluqueria.Migrations.UserPassPeluquero.resources
+C:\Users\agust\source\repos\TurnosPeluqueria\TurnosPeluqueria\obj\Release\TurnosPeluqueria.Migrations.AddAnotacionesPeluquero.resources
+C:\Users\agust\source\repos\TurnosPeluqueria\TurnosPeluqueria\obj\Release\TurnosPeluqueria.Migrations.Test.resources
+C:\Users\agust\source\repos\TurnosPeluqueria\TurnosPeluqueria\obj\Release\TurnosPeluqueria.Migrations.CambiosTurnos.resources
+C:\Users\agust\source\repos\TurnosPeluqueria\TurnosPeluqueria\obj\Release\TurnosPeluqueria.Migrations.Deploy.resources

@@ -94,3 +94,4 @@ C:\Users\agust\source\repos\TurnosPeluqueria\TurnosPeluqueria\bin\PagedList.dll
 C:\Users\agust\source\repos\TurnosPeluqueria\TurnosPeluqueria\bin\PagedList.Mvc.dll
 C:\Users\agust\source\repos\TurnosPeluqueria\TurnosPeluqueria\bin\PagedList.xml
 C:\Users\agust\source\repos\TurnosPeluqueria\TurnosPeluqueria\bin\PagedList.Mvc.xml
+C:\Users\agust\source\repos\TurnosPeluqueria\TurnosPeluqueria\obj\Debug\TurnosPeluqueria.Migrations.Deploy.resources

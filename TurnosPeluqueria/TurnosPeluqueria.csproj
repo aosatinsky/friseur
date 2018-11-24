@@ -231,6 +231,10 @@
     <Compile Include="Migrations\201811231437460_CambiosTurnos.Designer.cs">
       <DependentUpon>201811231437460_CambiosTurnos.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201811240522401_Deploy.cs" />
+    <Compile Include="Migrations\201811240522401_Deploy.Designer.cs">
+      <DependentUpon>201811240522401_Deploy.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Cliente.cs" />
     <Compile Include="Models\Peluquero.cs" />
@@ -283,6 +287,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201811231437460_CambiosTurnos.resx">
       <DependentUpon>201811231437460_CambiosTurnos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811240522401_Deploy.resx">
+      <DependentUpon>201811240522401_Deploy.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
