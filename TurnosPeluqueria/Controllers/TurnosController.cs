@@ -1,39 +1,36 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.Entity.SqlServer;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using TurnosPeluqueria.Datos;
 using TurnosPeluqueria.Models;
+using PagedList;
 
 namespace TurnosPeluqueria.Controllers
 {
 
     public class TurnosController : Controller
     {
+        private PeluqueriaContexto db = new PeluqueriaContexto();
 
         // GET: Turnos
-        public ActionResult Index()
+        public ActionResult Index(int? page)
         {
             if (Session["UserId"] != null)
             {
                 var hoy = DateTime.Today;
-                var man = (DateTime.Today).AddDays(1);
-                using (PeluqueriaContexto db = new PeluqueriaContexto())
-                {
-                    ViewBag.misTurnos = db.Turnos.Where(u => u.ClienteId.ToString() == Session["UserId"].ToString() 
-                    &&  u.Horario > DateTime.Today);
+               
+                    var usuario = Session["User"].ToString();
+                    var misTurnos = db.Turnos.Where(u => u.Cliente.User == usuario).OrderByDescending(i => i.Horario);
                     ViewBag.turnosHoy = db.Turnos.Where(u => DbFunctions.TruncateTime(u.Horario) == hoy.Date).ToList();
-                    ViewBag.turnosMan = db.Turnos.Where(u => DbFunctions.TruncateTime(u.Horario) == man.Date).ToList();
                     var peluqueros = db.Peluqueros.ToList();
                     var listaPeluqueros = new SelectList(peluqueros, "ID", "Nombre");
                     ViewData["listaPeluqueros"] = listaPeluqueros;
-
-                    return View();
-                }
-
-
+                int pageNumber = (page ?? 1);
+                return View(misTurnos.ToPagedList(pageNumber, 3));
                    
             }
             else return RedirectToAction("Login");
@@ -119,23 +116,38 @@ namespace TurnosPeluqueria.Controllers
         [HttpGet]
         public ActionResult NuevoTurno(int horario, int userID, int peluqueroID)
         {
+            var usuario = Session["User"].ToString();
             if (Session["UserId"] != null && Session["UserId"].ToString() == userID.ToString())
             {
                 using (PeluqueriaContexto db = new PeluqueriaContexto())
                 {
-                    var cliente = db.Clientes.Where(u => u.Id == userID).First();
-                    var peluquero = db.Peluqueros.Where(u => u.Id == peluqueroID).First();
-                    Turno turno = new Turno
+                    var misTurnos = db.Turnos.Where(u => u.Cliente.User == usuario
+            && DbFunctions.TruncateTime(u.Horario) == DateTime.Today.Date).ToList();
+                    if (misTurnos.Count() == 0)
                     {
-                        Cliente = cliente,
-                        Peluquero = peluquero,
-                        Horario = new DateTime(DateTime.Today.Year, DateTime.Today.Month, DateTime.Today.Day, horario, 0, 0)
-                };
-                    db.Turnos.Add(turno);
-                    db.SaveChanges();
+                        var cliente = db.Clientes.Where(u => u.Id == userID).First();
+                        var peluquero = db.Peluqueros.Where(u => u.Id == peluqueroID).First();
+                        Turno turno = new Turno
+                        {
+                            Cliente = cliente,
+                            Peluquero = peluquero,
+                            Horario = new DateTime(DateTime.Today.Year, DateTime.Today.Month, DateTime.Today.Day, horario, 0, 0)
+                        };
+                        db.Turnos.Add(turno);
+                        db.SaveChanges();
+                        
+                        return RedirectToAction("Index");
+                    }
+                    else
+                    {
+                        TempData["error"] = "si";
+                        return RedirectToAction("Index");
+                    }
+                   
+                    
                 }
                 
-                return RedirectToAction("Index");
+                
             }
             else
             {
