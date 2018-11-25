@@ -21,7 +21,7 @@
 
 </head>
 <body>
-
+    <p hidden id="id">@Session["UserId"].ToString()</p>
     @if (TempData["error"] != null)
     {
         <div class="alert alert-danger alert-dismissible fade show" role="alert">
@@ -102,343 +102,341 @@
                 }
 
             </table>
-            </div>
-            <div class="row">
-                <div class="col-12 col-centered">
-                    <nav aria-label="Page navigation">
-                        @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
-                    </nav>
-                </div>
-            </div>
-
         </div>
+        <div class="row">
+            <div class="col-12 col-centered">
+                <nav aria-label="Page navigation">
+                    @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
+                </nav>
+            </div>
+        </div>
+
+    </div>
+    <br />
+    <div class="container">
+        <h4>Turnos disponibles para hoy</h4>
         <br />
-        <div class="container">
-            <h4>Turnos disponibles para hoy</h4>
-            <br />
-            <div class="container-fluid">
-                <div class="table-responsive ">
-                    <table class="table">
-                        <thead class="thead-dark">
-                            <tr>
-                                <th scope="col">Horario</th>
-                                <th scope="col">Peluquero</th>
-                                <th scope="col">Reservar</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td class="align-middle">09:00</td>
-                                @{
-                                    DateTime nueve = new DateTime(DateTime.Today.Year, DateTime.Today.Month, DateTime.Today.Day
-                                    , 09, 0, 0);
-                                    if ((ViewBag.turnosHoy as ICollection<Turno>).Count != 0 &&
-                                        ((ViewBag.turnosHoy as ICollection<Turno>).Where(u => u.Horario == nueve)).ToList().Count() != 0)
+        <div class="container-fluid">
+            <div class="table-responsive ">
+                <table class="table">
+                    <thead class="thead-dark align-middle">
+                        <tr>
+                            <th scope="col">Horario</th>
+                            <th scope="col">Reservar</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="align-middle">09:00</td>
+                            @{
+                                DateTime nueve = new DateTime(DateTime.Today.Year, DateTime.Today.Month, DateTime.Today.Day
+                                , 09, 0, 0);
+                                if ((ViewBag.turnosHoy as ICollection<Turno>).Count != 0 &&
+                                    ((ViewBag.turnosHoy as ICollection<Turno>).Where(u => u.Horario == nueve)).ToList().Count() != 0)
+                                {
+                                    var turno9 = ((ViewBag.turnosHoy as ICollection<Turno>).Where(u => u.Horario == nueve)).First();
+                                    if (nueve == turno9.Horario)
                                     {
-                                        var turno9 = ((ViewBag.turnosHoy as ICollection<Turno>).Where(u => u.Horario == nueve)).First();
-                                        if (nueve == turno9.Horario)
+                                        if (((ViewBag.turnosHoy as ICollection<Turno>).Where(u => u.Horario == nueve)).Count() == 1)
                                         {
-                                            if (((ViewBag.turnosHoy as ICollection<Turno>).Where(u => u.Horario == nueve)).Count() == 1)
-                                            {
-                                                var lista = ((SelectList)ViewData["listaPeluqueros"]).Where(u => u.Text != turno9.Peluquero.Nombre);
-                                                <td>@Html.DropDownList("listaPeluqueros", lista, new { @class = "btn btn-light", @id = "listaPeluqueros" })</td>
-                                                <td><div id="display"></div></td>
-                                            }
+                                            var lista = ((SelectList)ViewData["listaPeluqueros"]).Where(u => u.Text != turno9.Peluquero.Nombre);
+                                            <td>@Html.DropDownList("listaPeluqueros", lista, new { @class = "btn btn-light", @id = "listaPeluqueros" }) <div id="display"></div></td>
+                                            
                                         }
-                                        else
-                                        {
-                                             
-                                            <td>@Html.DropDownList("listaPeluqueros", ViewData["listaPeluqueros"] as SelectList, new { @class = "btn btn-light", @id = "listaPeluqueros" })</td>
-                                            <td><div id="display"></div></td>
-                                        }
-
                                     }
                                     else
                                     {
-                                         
-                                        <td>@Html.DropDownList("listaPeluqueros", ViewData["listaPeluqueros"] as SelectList, new { @class = "btn btn-light", @id = "listaPeluqueros" })</td>
-                                        <td><div id="display"></div></td>
-                                        @*<td>@Html.ActionLink("Reservar", "NuevoTurno", "Turnos", routeValues: new { horario = 9, userID = Session["UserId"].ToString(), peluqueroID = 0}, htmlAttributes: new { @class = "btn btn-light", @id="Reservar9"})</td>*@
+
+                                        <td>@Html.DropDownList("listaPeluqueros", ViewData["listaPeluqueros"] as SelectList, new { @class = "btn btn-light", @id = "listaPeluqueros" }) <div id="display"></div></td>
+                                        
                                     }
+
                                 }
-                            </tr>
-                            <tr>
-                                <td class="align-middle">10:00</td>
-                                @{
-                                    DateTime diez = new DateTime(DateTime.Today.Year, DateTime.Today.Month, DateTime.Today.Day
-                                    , 10, 0, 0);
-                                    if ((ViewBag.turnosHoy as ICollection<Turno>).Count != 0 &&
-                                        ((ViewBag.turnosHoy as ICollection<Turno>).Where(u => u.Horario == diez)).ToList().Count() != 0)
-                                    {
-                                        var turno10 = ((ViewBag.turnosHoy as ICollection<Turno>).Where(u => u.Horario == diez)).First();
-                                        if (diez == turno10.Horario)
-                                        {
-                                            if (((ViewBag.turnosHoy as ICollection<Turno>).Where(u => u.Horario == diez)).Count() == 1)
-                                            {
-                                                var lista = ((SelectList)ViewData["listaPeluqueros"]).Where(u => u.Text != turno10.Peluquero.Nombre);
-                                                 
-                                                <td>@Html.DropDownList("listaPeluqueros10", lista, new { @class = "btn btn-light", @id = "listaPeluqueros10" })</td>
-                                                <td><div id="display10"></div></td>
-                                            }
-                                        }
-                                        else
-                                        {
-                                             
-                                            <td>@Html.DropDownList("listaPeluqueros10", ViewData["listaPeluqueros"] as SelectList, new { @class = "btn btn-light", @id = "listaPeluqueros10" })</td>
-                                            <td><div id="display10"></div></td>
-                                        }
+                                else
+                                {
 
+                                    <td>@Html.DropDownList("listaPeluqueros", ViewData["listaPeluqueros"] as SelectList, new { @class = "btn btn-light", @id = "listaPeluqueros" }) <div id="display"></div></td>
+                                  
+                                    @*<td>@Html.ActionLink("Reservar", "NuevoTurno", "Turnos", routeValues: new { horario = 9, userID = Session["UserId"].ToString(), peluqueroID = 0}, htmlAttributes: new { @class = "btn btn-light", @id="Reservar9"})</td>*@
+                                }
+                            }
+                        </tr>
+                        <tr>
+                            <td class="align-middle">10:00</td>
+                            @{
+                                DateTime diez = new DateTime(DateTime.Today.Year, DateTime.Today.Month, DateTime.Today.Day
+                                , 10, 0, 0);
+                                if ((ViewBag.turnosHoy as ICollection<Turno>).Count != 0 &&
+                                    ((ViewBag.turnosHoy as ICollection<Turno>).Where(u => u.Horario == diez)).ToList().Count() != 0)
+                                {
+                                    var turno10 = ((ViewBag.turnosHoy as ICollection<Turno>).Where(u => u.Horario == diez)).First();
+                                    if (diez == turno10.Horario)
+                                    {
+                                        if (((ViewBag.turnosHoy as ICollection<Turno>).Where(u => u.Horario == diez)).Count() == 1)
+                                        {
+                                            var lista = ((SelectList)ViewData["listaPeluqueros"]).Where(u => u.Text != turno10.Peluquero.Nombre);
+                                            <td> @Html.DropDownList("listaPeluqueros10", lista, new { @class = "btn btn-light", @id = "listaPeluqueros10" }) <div id="display10"></div></td>
+                                           
+                                        }
                                     }
                                     else
                                     {
-                                         
+
                                         <td>@Html.DropDownList("listaPeluqueros10", ViewData["listaPeluqueros"] as SelectList, new { @class = "btn btn-light", @id = "listaPeluqueros10" })</td>
                                         <td><div id="display10"></div></td>
-                                        @*<td>@Html.ActionLink("Reservar", "NuevoTurno", "Turnos", routeValues: new { horario = 9, userID = Session["UserId"].ToString(), peluqueroID = 0}, htmlAttributes: new { @class = "btn btn-light", @id="Reservar9"})</td>*@
                                     }
-                                }
-                            </tr>
-                            <tr>
-                                <td class="align-middle">11:00</td>
-                                @{
-                                    DateTime once = new DateTime(DateTime.Today.Year, DateTime.Today.Month, DateTime.Today.Day
-                                    , 11, 0, 0);
-                                    if ((ViewBag.turnosHoy as ICollection<Turno>).Count != 0 &&
-                                        ((ViewBag.turnosHoy as ICollection<Turno>).Where(u => u.Horario == once)).ToList().Count() != 0)
-                                    {
-                                        var turno11 = ((ViewBag.turnosHoy as ICollection<Turno>).Where(u => u.Horario == once)).First();
-                                        if (once == turno11.Horario)
-                                        {
-                                            if (((ViewBag.turnosHoy as ICollection<Turno>).Where(u => u.Horario == once)).Count() == 1)
-                                            {
-                                                var lista = ((SelectList)ViewData["listaPeluqueros"]).Where(u => u.Text != turno11.Peluquero.Nombre);
-                                                 
-                                                <td>@Html.DropDownList("listaPeluqueros11", lista, new { @class = "btn btn-light", @id = "listaPeluqueros11" })</td>
-                                                <td><div id="display11"></div></td>
-                                            }
-                                        }
-                                        else
-                                        {
-                                             
-                                            <td>@Html.DropDownList("listaPeluqueros11", ViewData["listaPeluqueros"] as SelectList, new { @class = "btn btn-light", @id = "listaPeluqueros11" })</td>
-                                            <td><div id="display11"></div></td>
-                                        }
 
+                                }
+                                else
+                                {
+
+                                    <td>@Html.DropDownList("listaPeluqueros10", ViewData["listaPeluqueros"] as SelectList, new { @class = "btn btn-light", @id = "listaPeluqueros10" })</td>
+                                    <td><div id="display10"></div></td>
+                                    @*<td>@Html.ActionLink("Reservar", "NuevoTurno", "Turnos", routeValues: new { horario = 9, userID = Session["UserId"].ToString(), peluqueroID = 0}, htmlAttributes: new { @class = "btn btn-light", @id="Reservar9"})</td>*@
+                                }
+                            }
+                        </tr>
+                        <tr>
+                            <td class="align-middle">11:00</td>
+                            @{
+                                DateTime once = new DateTime(DateTime.Today.Year, DateTime.Today.Month, DateTime.Today.Day
+                                , 11, 0, 0);
+                                if ((ViewBag.turnosHoy as ICollection<Turno>).Count != 0 &&
+                                    ((ViewBag.turnosHoy as ICollection<Turno>).Where(u => u.Horario == once)).ToList().Count() != 0)
+                                {
+                                    var turno11 = ((ViewBag.turnosHoy as ICollection<Turno>).Where(u => u.Horario == once)).First();
+                                    if (once == turno11.Horario)
+                                    {
+                                        if (((ViewBag.turnosHoy as ICollection<Turno>).Where(u => u.Horario == once)).Count() == 1)
+                                        {
+                                            var lista = ((SelectList)ViewData["listaPeluqueros"]).Where(u => u.Text != turno11.Peluquero.Nombre);
+
+                                            <td>@Html.DropDownList("listaPeluqueros11", lista, new { @class = "btn btn-light", @id = "listaPeluqueros11" }) <div id="display11"></div></td>
+                                            
+                                        }
                                     }
                                     else
                                     {
-                                         
-                                        <td>@Html.DropDownList("listaPeluqueros11", ViewData["listaPeluqueros"] as SelectList, new { @class = "btn btn-light", @id = "listaPeluqueros11" })</td>
-                                        <td><div id="display11"></div></td>
-                                        @*<td>@Html.ActionLink("Reservar", "NuevoTurno", "Turnos", routeValues: new { horario = 9, userID = Session["UserId"].ToString(), peluqueroID = 0}, htmlAttributes: new { @class = "btn btn-light", @id="Reservar9"})</td>*@
-                                    }
-                                }
-                            </tr>
-                            <tr>
-                                <td class="align-middle">12:00</td>
-                                @{
-                                    DateTime doce = new DateTime(DateTime.Today.Year, DateTime.Today.Month, DateTime.Today.Day
-                                    , 12, 0, 0);
-                                    if ((ViewBag.turnosHoy as ICollection<Turno>).Count != 0 &&
-                                        ((ViewBag.turnosHoy as ICollection<Turno>).Where(u => u.Horario == doce)).ToList().Count() != 0)
-                                    {
-                                        var turno12 = ((ViewBag.turnosHoy as ICollection<Turno>).Where(u => u.Horario == doce)).First();
-                                        if (doce == turno12.Horario)
-                                        {
-                                            if (((ViewBag.turnosHoy as ICollection<Turno>).Where(u => u.Horario == doce)).Count() == 1)
-                                            {
-                                                var lista = ((SelectList)ViewData["listaPeluqueros"]).Where(u => u.Text != turno12.Peluquero.Nombre);
-                                                 
-                                                <td>@Html.DropDownList("listaPeluqueros12", lista, new { @class = "btn btn-light", @id = "listaPeluqueros12" })</td>
-                                                <td><div id="display12"></div></td>
-                                            }
-                                        }
-                                        else
-                                        {
-                                             
-                                            <td>@Html.DropDownList("listaPeluqueros12", ViewData["listaPeluqueros"] as SelectList, new { @class = "btn btn-light", @id = "listaPeluqueros12" })</td>
-                                            <td><div id="display12"></div></td>
-                                        }
 
+                                        <td>@Html.DropDownList("listaPeluqueros11", ViewData["listaPeluqueros"] as SelectList, new { @class = "btn btn-light", @id = "listaPeluqueros11" })<div id="display11"></div></td>
+                                     
+                                    }
+
+                                }
+                                else
+                                {
+
+                                    <td>@Html.DropDownList("listaPeluqueros11", ViewData["listaPeluqueros"] as SelectList, new { @class = "btn btn-light", @id = "listaPeluqueros11" }) <div id="display11"></div></td>
+                                   
+                                    @*<td>@Html.ActionLink("Reservar", "NuevoTurno", "Turnos", routeValues: new { horario = 9, userID = Session["UserId"].ToString(), peluqueroID = 0}, htmlAttributes: new { @class = "btn btn-light", @id="Reservar9"})</td>*@
+                                }
+                            }
+                        </tr>
+                        <tr>
+                            <td class="align-middle">12:00</td>
+                            @{
+                                DateTime doce = new DateTime(DateTime.Today.Year, DateTime.Today.Month, DateTime.Today.Day
+                                , 12, 0, 0);
+                                if ((ViewBag.turnosHoy as ICollection<Turno>).Count != 0 &&
+                                    ((ViewBag.turnosHoy as ICollection<Turno>).Where(u => u.Horario == doce)).ToList().Count() != 0)
+                                {
+                                    var turno12 = ((ViewBag.turnosHoy as ICollection<Turno>).Where(u => u.Horario == doce)).First();
+                                    if (doce == turno12.Horario)
+                                    {
+                                        if (((ViewBag.turnosHoy as ICollection<Turno>).Where(u => u.Horario == doce)).Count() == 1)
+                                        {
+                                            var lista = ((SelectList)ViewData["listaPeluqueros"]).Where(u => u.Text != turno12.Peluquero.Nombre);
+
+                                            <td>@Html.DropDownList("listaPeluqueros12", lista, new { @class = "btn btn-light", @id = "listaPeluqueros12" }) <div id="display12"></div></td>
+                                          
+                                        }
                                     }
                                     else
                                     {
-                                         
-                                        <td>@Html.DropDownList("listaPeluqueros12", ViewData["listaPeluqueros"] as SelectList, new { @class = "btn btn-light", @id = "listaPeluqueros12" })</td>
-                                        <td><div id="display12"></div></td>
-                                        @*<td>@Html.ActionLink("Reservar", "NuevoTurno", "Turnos", routeValues: new { horario = 9, userID = Session["UserId"].ToString(), peluqueroID = 0}, htmlAttributes: new { @class = "btn btn-light", @id="Reservar9"})</td>*@
-                                    }
-                                }
-                            </tr>
-                            <tr>
-                                <td class="align-middle">16:00</td>
-                                @{
-                                    DateTime dieciseis = new DateTime(DateTime.Today.Year, DateTime.Today.Month, DateTime.Today.Day
-                                    , 16, 0, 0);
-                                    if ((ViewBag.turnosHoy as ICollection<Turno>).Count != 0 &&
-                                        ((ViewBag.turnosHoy as ICollection<Turno>).Where(u => u.Horario == dieciseis)).ToList().Count() != 0)
-                                    {
-                                        var turno16 = ((ViewBag.turnosHoy as ICollection<Turno>).Where(u => u.Horario == dieciseis)).First();
-                                        if (dieciseis == turno16.Horario)
-                                        {
-                                            if (((ViewBag.turnosHoy as ICollection<Turno>).Where(u => u.Horario == dieciseis)).Count() == 1)
-                                            {
-                                                var lista = ((SelectList)ViewData["listaPeluqueros"]).Where(u => u.Text != turno16.Peluquero.Nombre);
-                                                 
-                                                <td>@Html.DropDownList("listaPeluqueros16", lista, new { @class = "btn btn-light", @id = "listaPeluqueros16" })</td>
-                                                <td><div id="display16"></div></td>
-                                            }
-                                        }
-                                        else
-                                        {
-                                             
-                                            <td>@Html.DropDownList("listaPeluqueros16", ViewData["listaPeluqueros"] as SelectList, new { @class = "btn btn-light", @id = "listaPeluqueros16" })</td>
-                                            <td><div id="display16"></div></td>
-                                        }
 
+                                        <td>@Html.DropDownList("listaPeluqueros12", ViewData["listaPeluqueros"] as SelectList, new { @class = "btn btn-light", @id = "listaPeluqueros12" }) <div id="display12"></div></td>
+                                        
+                                    }
+
+                                }
+                                else
+                                {
+
+                                    <td>@Html.DropDownList("listaPeluqueros12", ViewData["listaPeluqueros"] as SelectList, new { @class = "btn btn-light", @id = "listaPeluqueros12" }) <div id="display12"></div></td>
+                                    
+                                    @*<td>@Html.ActionLink("Reservar", "NuevoTurno", "Turnos", routeValues: new { horario = 9, userID = Session["UserId"].ToString(), peluqueroID = 0}, htmlAttributes: new { @class = "btn btn-light", @id="Reservar9"})</td>*@
+                                }
+                            }
+                        </tr>
+                        <tr>
+                            <td class="align-middle">16:00</td>
+                            @{
+                                DateTime dieciseis = new DateTime(DateTime.Today.Year, DateTime.Today.Month, DateTime.Today.Day
+                                , 16, 0, 0);
+                                if ((ViewBag.turnosHoy as ICollection<Turno>).Count != 0 &&
+                                    ((ViewBag.turnosHoy as ICollection<Turno>).Where(u => u.Horario == dieciseis)).ToList().Count() != 0)
+                                {
+                                    var turno16 = ((ViewBag.turnosHoy as ICollection<Turno>).Where(u => u.Horario == dieciseis)).First();
+                                    if (dieciseis == turno16.Horario)
+                                    {
+                                        if (((ViewBag.turnosHoy as ICollection<Turno>).Where(u => u.Horario == dieciseis)).Count() == 1)
+                                        {
+                                            var lista = ((SelectList)ViewData["listaPeluqueros"]).Where(u => u.Text != turno16.Peluquero.Nombre);
+
+                                            <td>@Html.DropDownList("listaPeluqueros16", lista, new { @class = "btn btn-light", @id = "listaPeluqueros16" }) <div id="display16"></div></td>
+                                  
+                                        }
                                     }
                                     else
                                     {
-                                         
-                                        <td>@Html.DropDownList("listaPeluqueros16", ViewData["listaPeluqueros"] as SelectList, new { @class = "btn btn-light", @id = "listaPeluqueros16" })</td>
-                                        <td><div id="display16"></div></td>
-                                        @*<td>@Html.ActionLink("Reservar", "NuevoTurno", "Turnos", routeValues: new { horario = 9, userID = Session["UserId"].ToString(), peluqueroID = 0}, htmlAttributes: new { @class = "btn btn-light", @id="Reservar9"})</td>*@
-                                    }
-                                }
-                            </tr>
-                            <tr>
-                                <td class="align-middle">17:00</td>
-                                @{
-                                    DateTime diecisiete = new DateTime(DateTime.Today.Year, DateTime.Today.Month, DateTime.Today.Day
-                                    , 17, 0, 0);
-                                    if ((ViewBag.turnosHoy as ICollection<Turno>).Count != 0 &&
-                                        ((ViewBag.turnosHoy as ICollection<Turno>).Where(u => u.Horario == diecisiete)).ToList().Count() != 0)
-                                    {
-                                        var turno17 = ((ViewBag.turnosHoy as ICollection<Turno>).Where(u => u.Horario == diecisiete)).First();
-                                        if (diecisiete == turno17.Horario)
-                                        {
-                                            if (((ViewBag.turnosHoy as ICollection<Turno>).Where(u => u.Horario == diecisiete)).Count() == 1)
-                                            {
-                                                var lista = ((SelectList)ViewData["listaPeluqueros"]).Where(u => u.Text != turno17.Peluquero.Nombre);
-                                                 
-                                                <td>@Html.DropDownList("listaPeluqueros17", lista, new { @class = "btn btn-light", @id = "listaPeluqueros17" })</td>
-                                                <td><div id="display17"></div></td>
-                                            }
-                                        }
-                                        else
-                                        {
-                                             
-                                            <td>@Html.DropDownList("listaPeluqueros17", ViewData["listaPeluqueros"] as SelectList, new { @class = "btn btn-light", @id = "listaPeluqueros17" })</td>
-                                            <td><div id="display17"></div></td>
-                                        }
 
+                                        <td>@Html.DropDownList("listaPeluqueros16", ViewData["listaPeluqueros"] as SelectList, new { @class = "btn btn-light", @id = "listaPeluqueros16" }) <div id="display16"></div></td>
+                                      
+                                    }
+
+                                }
+                                else
+                                {
+
+                                    <td>@Html.DropDownList("listaPeluqueros16", ViewData["listaPeluqueros"] as SelectList, new { @class = "btn btn-light", @id = "listaPeluqueros16" }) <div id="display16"></div></td>
+                                    
+                                    @*<td>@Html.ActionLink("Reservar", "NuevoTurno", "Turnos", routeValues: new { horario = 9, userID = Session["UserId"].ToString(), peluqueroID = 0}, htmlAttributes: new { @class = "btn btn-light", @id="Reservar9"})</td>*@
+                                }
+                            }
+                        </tr>
+                        <tr>
+                            <td class="align-middle">17:00</td>
+                            @{
+                                DateTime diecisiete = new DateTime(DateTime.Today.Year, DateTime.Today.Month, DateTime.Today.Day
+                                , 17, 0, 0);
+                                if ((ViewBag.turnosHoy as ICollection<Turno>).Count != 0 &&
+                                    ((ViewBag.turnosHoy as ICollection<Turno>).Where(u => u.Horario == diecisiete)).ToList().Count() != 0)
+                                {
+                                    var turno17 = ((ViewBag.turnosHoy as ICollection<Turno>).Where(u => u.Horario == diecisiete)).First();
+                                    if (diecisiete == turno17.Horario)
+                                    {
+                                        if (((ViewBag.turnosHoy as ICollection<Turno>).Where(u => u.Horario == diecisiete)).Count() == 1)
+                                        {
+                                            var lista = ((SelectList)ViewData["listaPeluqueros"]).Where(u => u.Text != turno17.Peluquero.Nombre);
+
+                                            <td>@Html.DropDownList("listaPeluqueros17", lista, new { @class = "btn btn-light", @id = "listaPeluqueros17" }) <div id="display17"></div></td>
+                                            
+                                        }
                                     }
                                     else
                                     {
-                                         
-                                        <td>@Html.DropDownList("listaPeluqueros17", ViewData["listaPeluqueros"] as SelectList, new { @class = "btn btn-light", @id = "listaPeluqueros17" })</td>
-                                        <td><div id="display17"></div></td>
-                                        @*<td>@Html.ActionLink("Reservar", "NuevoTurno", "Turnos", routeValues: new { horario = 9, userID = Session["UserId"].ToString(), peluqueroID = 0}, htmlAttributes: new { @class = "btn btn-light", @id="Reservar9"})</td>*@
-                                    }
-                                }
-                            </tr>
-                            <tr>
-                                <td class="align-middle">18:00</td>
-                                @{
-                                    DateTime dieciocho = new DateTime(DateTime.Today.Year, DateTime.Today.Month, DateTime.Today.Day
-                                    , 18, 0, 0);
-                                    if ((ViewBag.turnosHoy as ICollection<Turno>).Count != 0 &&
-                                        ((ViewBag.turnosHoy as ICollection<Turno>).Where(u => u.Horario == dieciocho)).ToList().Count() != 0)
-                                    {
-                                        var turno18 = ((ViewBag.turnosHoy as ICollection<Turno>).Where(u => u.Horario == dieciocho)).First();
-                                        if (dieciocho == turno18.Horario)
-                                        {
-                                            if (((ViewBag.turnosHoy as ICollection<Turno>).Where(u => u.Horario == dieciocho)).Count() == 1)
-                                            {
-                                                var lista = ((SelectList)ViewData["listaPeluqueros"]).Where(u => u.Text != turno18.Peluquero.Nombre);
-                                                 
-                                                <td>@Html.DropDownList("listaPeluqueros18", lista, new { @class = "btn btn-light", @id = "listaPeluqueros18" })</td>
-                                                <td><div id="display18"></div></td>
-                                            }
-                                        }
-                                        else
-                                        {
-                                             
-                                            <td>@Html.DropDownList("listaPeluqueros18", ViewData["listaPeluqueros"] as SelectList, new { @class = "btn btn-light", @id = "listaPeluqueros18" })</td>
-                                            <td><div id="display18"></div></td>
-                                        }
 
+                                        <td>@Html.DropDownList("listaPeluqueros17", ViewData["listaPeluqueros"] as SelectList, new { @class = "btn btn-light", @id = "listaPeluqueros17" }) <div id="display17"></div></td>
+                                        
+                                    }
+
+                                }
+                                else
+                                {
+
+                                    <td>@Html.DropDownList("listaPeluqueros17", ViewData["listaPeluqueros"] as SelectList, new { @class = "btn btn-light", @id = "listaPeluqueros17" }) <div id="display17"></div></td>
+                                    
+                                    @*<td>@Html.ActionLink("Reservar", "NuevoTurno", "Turnos", routeValues: new { horario = 9, userID = Session["UserId"].ToString(), peluqueroID = 0}, htmlAttributes: new { @class = "btn btn-light", @id="Reservar9"})</td>*@
+                                }
+                            }
+                        </tr>
+                        <tr>
+                            <td class="align-middle">18:00</td>
+                            @{
+                                DateTime dieciocho = new DateTime(DateTime.Today.Year, DateTime.Today.Month, DateTime.Today.Day
+                                , 18, 0, 0);
+                                if ((ViewBag.turnosHoy as ICollection<Turno>).Count != 0 &&
+                                    ((ViewBag.turnosHoy as ICollection<Turno>).Where(u => u.Horario == dieciocho)).ToList().Count() != 0)
+                                {
+                                    var turno18 = ((ViewBag.turnosHoy as ICollection<Turno>).Where(u => u.Horario == dieciocho)).First();
+                                    if (dieciocho == turno18.Horario)
+                                    {
+                                        if (((ViewBag.turnosHoy as ICollection<Turno>).Where(u => u.Horario == dieciocho)).Count() == 1)
+                                        {
+                                            var lista = ((SelectList)ViewData["listaPeluqueros"]).Where(u => u.Text != turno18.Peluquero.Nombre);
+
+                                            <td>@Html.DropDownList("listaPeluqueros18", lista, new { @class = "btn btn-light", @id = "listaPeluqueros18" }) <div id="display18"></div></td>
+                                            
+                                        }
                                     }
                                     else
                                     {
-                                         
-                                        <td>@Html.DropDownList("listaPeluqueros18", ViewData["listaPeluqueros"] as SelectList, new { @class = "btn btn-light", @id = "listaPeluqueros18" })</td>
-                                        <td><div id="display18"></div></td>
-                                        @*<td>@Html.ActionLink("Reservar", "NuevoTurno", "Turnos", routeValues: new { horario = 9, userID = Session["UserId"].ToString(), peluqueroID = 0}, htmlAttributes: new { @class = "btn btn-light", @id="Reservar9"})</td>*@
-                                    }
-                                }
-                            </tr>
-                            <tr>
-                                <td class="align-middle">19:00</td>
-                                @{
-                                    DateTime diecinueve = new DateTime(DateTime.Today.Year, DateTime.Today.Month, DateTime.Today.Day
-                                    , 19, 0, 0);
-                                    if ((ViewBag.turnosHoy as ICollection<Turno>).Count != 0 &&
-                                        ((ViewBag.turnosHoy as ICollection<Turno>).Where(u => u.Horario == diecinueve)).ToList().Count() != 0)
-                                    {
-                                        var turno19 = ((ViewBag.turnosHoy as ICollection<Turno>).Where(u => u.Horario == diecinueve)).First();
-                                        if (diecinueve == turno19.Horario)
-                                        {
-                                            if (((ViewBag.turnosHoy as ICollection<Turno>).Where(u => u.Horario == diecinueve)).Count() == 1)
-                                            {
-                                                var lista = ((SelectList)ViewData["listaPeluqueros"]).Where(u => u.Text != turno19.Peluquero.Nombre);
-                                                 
-                                                <td>@Html.DropDownList("listaPeluqueros19", lista, new { @class = "btn btn-light", @id = "listaPeluqueros19" })</td>
-                                                <td><div id="display19"></div></td>
-                                            }
-                                        }
-                                        else
-                                        {
-                                             
-                                            <td>@Html.DropDownList("listaPeluqueros19", ViewData["listaPeluqueros"] as SelectList, new { @class = "btn btn-light", @id = "listaPeluqueros19" })</td>
-                                            <td><div id="display19"></div></td>
-                                        }
 
+                                        <td>@Html.DropDownList("listaPeluqueros18", ViewData["listaPeluqueros"] as SelectList, new { @class = "btn btn-light", @id = "listaPeluqueros18" }) <div id="display18"></div></td>
+                                        
+                                    }
+
+                                }
+                                else
+                                {
+
+                                    <td>@Html.DropDownList("listaPeluqueros18", ViewData["listaPeluqueros"] as SelectList, new { @class = "btn btn-light", @id = "listaPeluqueros18" }) <div id="display18"></div></td>
+                                    
+                                    @*<td>@Html.ActionLink("Reservar", "NuevoTurno", "Turnos", routeValues: new { horario = 9, userID = Session["UserId"].ToString(), peluqueroID = 0}, htmlAttributes: new { @class = "btn btn-light", @id="Reservar9"})</td>*@
+                                }
+                            }
+                        </tr>
+                        <tr>
+                            <td class="align-middle">19:00</td>
+                            @{
+                                DateTime diecinueve = new DateTime(DateTime.Today.Year, DateTime.Today.Month, DateTime.Today.Day
+                                , 19, 0, 0);
+                                if ((ViewBag.turnosHoy as ICollection<Turno>).Count != 0 &&
+                                    ((ViewBag.turnosHoy as ICollection<Turno>).Where(u => u.Horario == diecinueve)).ToList().Count() != 0)
+                                {
+                                    var turno19 = ((ViewBag.turnosHoy as ICollection<Turno>).Where(u => u.Horario == diecinueve)).First();
+                                    if (diecinueve == turno19.Horario)
+                                    {
+                                        if (((ViewBag.turnosHoy as ICollection<Turno>).Where(u => u.Horario == diecinueve)).Count() == 1)
+                                        {
+                                            var lista = ((SelectList)ViewData["listaPeluqueros"]).Where(u => u.Text != turno19.Peluquero.Nombre);
+
+                                            <td>@Html.DropDownList("listaPeluqueros19", lista, new { @class = "btn btn-light", @id = "listaPeluqueros19" }) <div id="display19"></div></td>
+                                            
+                                        }
                                     }
                                     else
                                     {
-                                         
-                                        <td>@Html.DropDownList("listaPeluqueros19", ViewData["listaPeluqueros"] as SelectList, new { @class = "btn btn-light", @id = "listaPeluqueros19" })</td>
-                                        <td><div id="display19"></div></td>
-                                        @*<td>@Html.ActionLink("Reservar", "NuevoTurno", "Turnos", routeValues: new { horario = 9, userID = Session["UserId"].ToString(), peluqueroID = 0}, htmlAttributes: new { @class = "btn btn-light", @id="Reservar9"})</td>*@
-                                    }
-                                }
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
 
+                                        <td>@Html.DropDownList("listaPeluqueros19", ViewData["listaPeluqueros"] as SelectList, new { @class = "btn btn-light", @id = "listaPeluqueros19" }) <div id="display19"></div></td>
+                                        
+                                    }
+
+                                }
+                                else
+                                {
+
+                                    <td>@Html.DropDownList("listaPeluqueros19", ViewData["listaPeluqueros"] as SelectList, new { @class = "btn btn-light", @id = "listaPeluqueros19" }) <div id="display19"></div></td>
+                                    
+                                    @*<td>@Html.ActionLink("Reservar", "NuevoTurno", "Turnos", routeValues: new { horario = 9, userID = Session["UserId"].ToString(), peluqueroID = 0}, htmlAttributes: new { @class = "btn btn-light", @id="Reservar9"})</td>*@
+                                }
+                            }
+                        </tr>
+                    </tbody>
+                </table>
             </div>
+
         </div>
+    </div>
 
 
 
-        <div class="container">
+    <div class="container">
 
-            <hr>
-            <div class="text-center center-block">
-                <p class="txt-railway">- 2018 -</p>
-                <br />
-                <a href="#"><i id="social-fb" class="fa fa-facebook-square fa-3x social"></i></a>
-                <a href="#"><i id="social-tw" class="fa fa-twitter-square fa-3x social"></i></a>
-                <a href="#"><i id="social-gp" class="fa fa-google-plus-square fa-3x social"></i></a>
-                <a href="#"><i id="social-em" class="fa fa-envelope-square fa-3x social"></i></a>
-            </div>
-            <hr>
+        <hr>
+        <div class="text-center center-block">
+            <p class="txt-railway">- 2018 -</p>
+            <br />
+            <a href="#"><i id="social-fb" class="fa fa-facebook-square fa-3x social"></i></a>
+            <a href="#"><i id="social-tw" class="fa fa-twitter-square fa-3x social"></i></a>
+            <a href="#"><i id="social-gp" class="fa fa-google-plus-square fa-3x social"></i></a>
+            <a href="#"><i id="social-em" class="fa fa-envelope-square fa-3x social"></i></a>
         </div>
+        <hr>
+    </div>
 
-        <script src="~/Scripts/GetSelected.js"></script>
-        <script src="~/Scripts/jquery-3.0.0.min.js"></script>
-        <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/GetSelected.js"></script>
+    <script src="~/Scripts/jquery-3.0.0.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
 </body>
 </html>
