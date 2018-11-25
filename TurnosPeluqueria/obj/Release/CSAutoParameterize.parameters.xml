@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <parameters>
-  <parameter name="cn-Web.config Connection String" description="cn Cadena de conexión que usa la aplicación en web.config para obtener acceso a la base de datos." defaultValue="Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Agustin Osatinsky\Documents\Proyectos\friseur\TurnosPeluqueria\App_Data\Peluqueria.mdf;Integrated Security=True" tags="SqlConnectionString">
-    <parameterEntry kind="XmlFile" scope="C:\\Users\\Agustin\ Osatinsky\\Documents\\Proyectos\\friseur\\TurnosPeluqueria\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='cn']/@connectionString" />
+  <parameter name="PeluqueriaContexto-Web.config Connection String" description="PeluqueriaContexto Cadena de conexión que usa la aplicación en web.config para obtener acceso a la base de datos." defaultValue="Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFileName=|DataDirectory|\Peluqueria.mdf;Integrated Security=True" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\Agustin\ Osatinsky\\Documents\\Proyectos\\friseur\\TurnosPeluqueria\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='PeluqueriaContexto']/@connectionString" />
   </parameter>
-  <parameter name="cn_DatabasePublish-Web.config Connection String" description="cn_DatabasePublish Cadena de conexión que usa la aplicación en web.config para obtener acceso a la base de datos." defaultValue="cn_DatabasePublish.ConnetionString" tags="SqlConnectionString">
-    <parameterEntry kind="XmlFile" scope="C:\\Users\\Agustin\ Osatinsky\\Documents\\Proyectos\\friseur\\TurnosPeluqueria\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='cn_DatabasePublish']/@connectionString" />
+  <parameter name="PeluqueriaContexto_DatabasePublish-Web.config Connection String" description="PeluqueriaContexto_DatabasePublish Cadena de conexión que usa la aplicación en web.config para obtener acceso a la base de datos." defaultValue="PeluqueriaContexto_DatabasePublish.ConnetionString" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\Agustin\ Osatinsky\\Documents\\Proyectos\\friseur\\TurnosPeluqueria\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='PeluqueriaContexto_DatabasePublish']/@connectionString" />
   </parameter>
 </parameters>

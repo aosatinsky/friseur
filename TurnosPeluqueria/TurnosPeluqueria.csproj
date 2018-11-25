@@ -165,7 +165,7 @@
     <Content Include="Content\bootstrap-reboot.css.map" />
     <Content Include="Content\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap-grid.css.map" />
-    <None Include="Properties\PublishProfiles\friseur - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\friseur.pubxml" />
     <None Include="Scripts\jquery-3.0.0-vsdoc.js" />
     <Content Include="Scripts\GetSelected.js" />
     <Content Include="Scripts\jquery-3.0.0.js" />
@@ -213,49 +213,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201811182006265_InitialCreate.cs" />
-    <Compile Include="Migrations\201811182006265_InitialCreate.Designer.cs">
-      <DependentUpon>201811182006265_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201811182020318_AgregarUsuario.cs" />
-    <Compile Include="Migrations\201811182020318_AgregarUsuario.Designer.cs">
-      <DependentUpon>201811182020318_AgregarUsuario.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201811190040029_AgregarServicios.cs" />
-    <Compile Include="Migrations\201811190040029_AgregarServicios.Designer.cs">
-      <DependentUpon>201811190040029_AgregarServicios.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201811191610122_AgregarAnotaciones.cs" />
-    <Compile Include="Migrations\201811191610122_AgregarAnotaciones.Designer.cs">
-      <DependentUpon>201811191610122_AgregarAnotaciones.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201811191612259_AgregarPassw.cs" />
-    <Compile Include="Migrations\201811191612259_AgregarPassw.Designer.cs">
-      <DependentUpon>201811191612259_AgregarPassw.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201811191835269_CambioEmail.cs" />
-    <Compile Include="Migrations\201811191835269_CambioEmail.Designer.cs">
-      <DependentUpon>201811191835269_CambioEmail.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201811200259441_UserPassPeluquero.cs" />
-    <Compile Include="Migrations\201811200259441_UserPassPeluquero.Designer.cs">
-      <DependentUpon>201811200259441_UserPassPeluquero.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201811200349300_AddAnotacionesPeluquero.cs" />
-    <Compile Include="Migrations\201811200349300_AddAnotacionesPeluquero.Designer.cs">
-      <DependentUpon>201811200349300_AddAnotacionesPeluquero.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201811221533063_Test.cs" />
-    <Compile Include="Migrations\201811221533063_Test.Designer.cs">
-      <DependentUpon>201811221533063_Test.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201811231437460_CambiosTurnos.cs" />
-    <Compile Include="Migrations\201811231437460_CambiosTurnos.Designer.cs">
-      <DependentUpon>201811231437460_CambiosTurnos.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201811240522401_Deploy.cs" />
-    <Compile Include="Migrations\201811240522401_Deploy.Designer.cs">
-      <DependentUpon>201811240522401_Deploy.cs</DependentUpon>
+    <Compile Include="Migrations\201811252031550_InitialCreate.cs" />
+    <Compile Include="Migrations\201811252031550_InitialCreate.Designer.cs">
+      <DependentUpon>201811252031550_InitialCreate.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Cliente.cs" />
@@ -280,41 +240,6 @@
     <TypeScriptCompile Include="Scripts\index.d.ts" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201811182006265_InitialCreate.resx">
-      <DependentUpon>201811182006265_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201811182020318_AgregarUsuario.resx">
-      <DependentUpon>201811182020318_AgregarUsuario.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201811190040029_AgregarServicios.resx">
-      <DependentUpon>201811190040029_AgregarServicios.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201811191610122_AgregarAnotaciones.resx">
-      <DependentUpon>201811191610122_AgregarAnotaciones.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201811191612259_AgregarPassw.resx">
-      <DependentUpon>201811191612259_AgregarPassw.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201811191835269_CambioEmail.resx">
-      <DependentUpon>201811191835269_CambioEmail.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201811200259441_UserPassPeluquero.resx">
-      <DependentUpon>201811200259441_UserPassPeluquero.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201811200349300_AddAnotacionesPeluquero.resx">
-      <DependentUpon>201811200349300_AddAnotacionesPeluquero.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201811221533063_Test.resx">
-      <DependentUpon>201811221533063_Test.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201811231437460_CambiosTurnos.resx">
-      <DependentUpon>201811231437460_CambiosTurnos.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201811240522401_Deploy.resx">
-      <DependentUpon>201811240522401_Deploy.cs</DependentUpon>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
   <ItemGroup>
@@ -322,6 +247,11 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Servicios\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201811252031550_InitialCreate.resx">
+      <DependentUpon>201811252031550_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

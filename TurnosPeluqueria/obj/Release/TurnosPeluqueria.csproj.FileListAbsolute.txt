@@ -193,16 +193,6 @@ C:\Users\Agustin Osatinsky\Documents\Proyectos\friseur\TurnosPeluqueria\bin\es\S
 C:\Users\Agustin Osatinsky\Documents\Proyectos\friseur\TurnosPeluqueria\bin\es\System.Web.Mvc.resources.dll
 C:\Users\Agustin Osatinsky\Documents\Proyectos\friseur\TurnosPeluqueria\obj\Release\TurnosPeluqueria.csprojAssemblyReference.cache
 C:\Users\Agustin Osatinsky\Documents\Proyectos\friseur\TurnosPeluqueria\obj\Release\TurnosPeluqueria.Migrations.InitialCreate.resources
-C:\Users\Agustin Osatinsky\Documents\Proyectos\friseur\TurnosPeluqueria\obj\Release\TurnosPeluqueria.Migrations.AgregarUsuario.resources
-C:\Users\Agustin Osatinsky\Documents\Proyectos\friseur\TurnosPeluqueria\obj\Release\TurnosPeluqueria.Migrations.AgregarServicios.resources
-C:\Users\Agustin Osatinsky\Documents\Proyectos\friseur\TurnosPeluqueria\obj\Release\TurnosPeluqueria.Migrations.AgregarAnotaciones.resources
-C:\Users\Agustin Osatinsky\Documents\Proyectos\friseur\TurnosPeluqueria\obj\Release\TurnosPeluqueria.Migrations.AgregarPassw.resources
-C:\Users\Agustin Osatinsky\Documents\Proyectos\friseur\TurnosPeluqueria\obj\Release\TurnosPeluqueria.Migrations.CambioEmail.resources
-C:\Users\Agustin Osatinsky\Documents\Proyectos\friseur\TurnosPeluqueria\obj\Release\TurnosPeluqueria.Migrations.UserPassPeluquero.resources
-C:\Users\Agustin Osatinsky\Documents\Proyectos\friseur\TurnosPeluqueria\obj\Release\TurnosPeluqueria.Migrations.AddAnotacionesPeluquero.resources
-C:\Users\Agustin Osatinsky\Documents\Proyectos\friseur\TurnosPeluqueria\obj\Release\TurnosPeluqueria.Migrations.Test.resources
-C:\Users\Agustin Osatinsky\Documents\Proyectos\friseur\TurnosPeluqueria\obj\Release\TurnosPeluqueria.Migrations.CambiosTurnos.resources
-C:\Users\Agustin Osatinsky\Documents\Proyectos\friseur\TurnosPeluqueria\obj\Release\TurnosPeluqueria.Migrations.Deploy.resources
 C:\Users\Agustin Osatinsky\Documents\Proyectos\friseur\TurnosPeluqueria\obj\Release\TurnosPeluqueria.csproj.GenerateResource.cache
 C:\Users\Agustin Osatinsky\Documents\Proyectos\friseur\TurnosPeluqueria\obj\Release\TurnosPeluqueria.csproj.CoreCompileInputs.cache
 C:\Users\Agustin Osatinsky\Documents\Proyectos\friseur\TurnosPeluqueria\obj\Release\TurnosPeluqueria.csproj.CopyComplete

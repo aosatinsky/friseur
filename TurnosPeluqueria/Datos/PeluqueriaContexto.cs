@@ -9,7 +9,7 @@ namespace TurnosPeluqueria.Datos
 {
     public class PeluqueriaContexto : DbContext
     {
-        public PeluqueriaContexto() : base("cn")
+        public PeluqueriaContexto() : base("PeluqueriaContexto")
         {
         }
 

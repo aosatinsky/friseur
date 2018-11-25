@@ -182,16 +182,16 @@
                                     else
                                     {
 
-                                        <td>@Html.DropDownList("listaPeluqueros10", ViewData["listaPeluqueros"] as SelectList, new { @class = "btn btn-light", @id = "listaPeluqueros10" })</td>
-                                        <td><div id="display10"></div></td>
+                                        <td>@Html.DropDownList("listaPeluqueros10", ViewData["listaPeluqueros"] as SelectList, new { @class = "btn btn-light", @id = "listaPeluqueros10" }) <div id="display10"></div></td>
+                                        
                                     }
 
                                 }
                                 else
                                 {
 
-                                    <td>@Html.DropDownList("listaPeluqueros10", ViewData["listaPeluqueros"] as SelectList, new { @class = "btn btn-light", @id = "listaPeluqueros10" })</td>
-                                    <td><div id="display10"></div></td>
+                                    <td>@Html.DropDownList("listaPeluqueros10", ViewData["listaPeluqueros"] as SelectList, new { @class = "btn btn-light", @id = "listaPeluqueros10" }) <div id="display10"></div></td>
+
                                     @*<td>@Html.ActionLink("Reservar", "NuevoTurno", "Turnos", routeValues: new { horario = 9, userID = Session["UserId"].ToString(), peluqueroID = 0}, htmlAttributes: new { @class = "btn btn-light", @id="Reservar9"})</td>*@
                                 }
                             }
