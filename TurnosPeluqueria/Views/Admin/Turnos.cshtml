@@ -57,34 +57,37 @@
             <tr>
                 <td class="align-midd">
                 <th>
-                    @Html.DisplayNameFor(model => model.Cliente.Nombre)
+                    Cliente
                 </th>
                 <th>
                     @Html.DisplayNameFor(model => model.Cliente.Dni)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.Peluquero.Nombre)
+                    Peluquero
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.Horario)
+                    Fecha y Hora
                 </th>
                 <th></th>
             </tr>
 
             @foreach (var item in Model)
             {
-                <tr>
-                    <td class="align-midd">
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Cliente.Nombre)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Peluquero.Nombre)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Horario)
-                    </td>
-                </tr>
+            <tr>
+                <td class="align-midd">
+                <td>
+                    @Html.DisplayFor(modelItem => item.Cliente.Nombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Cliente.Dni)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Peluquero.Nombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Horario)
+                </td>
+            </tr>
             }
 
         </table>
