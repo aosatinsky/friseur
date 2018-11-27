@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -18,7 +19,8 @@ namespace TurnosPeluqueria.Controllers
             {
                 using (PeluqueriaContexto db = new PeluqueriaContexto())
                 {
-                    return View(db.Turnos.AsNoTracking().Where(p => p.Horario.ToShortDateString() == DateTime.Now.ToShortDateString()).ToList());
+                    
+                    return View(db.Turnos.AsNoTracking().Where(p => DbFunctions.TruncateTime(p.Horario) == DateTime.Today.Date).ToList());
                 }
             }
             else

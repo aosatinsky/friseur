@@ -66,7 +66,7 @@
                     @Html.DisplayNameFor(model => model.Peluquero.Nombre)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.Horario.ToString("dd/MM/yyyy"))
+                    @Html.DisplayNameFor(model => model.Horario)
                 </th>
                 <th></th>
             </tr>
@@ -77,9 +77,6 @@
                     <td class="align-midd">
                     <td>
                         @Html.DisplayFor(modelItem => item.Cliente.Nombre)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Cliente.Dni)
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.Peluquero.Nombre)
