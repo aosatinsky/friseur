@@ -11,17 +11,15 @@ namespace TurnosPeluqueria.Controllers
 {
     public class AdminController : Controller
     {
-
+        PeluqueriaContexto db = new PeluqueriaContexto();
         // GET: Admin
         public ActionResult Turnos()
         {
             if (Session["PeluqeroId"] != null)
             {
-                using (PeluqueriaContexto db = new PeluqueriaContexto())
-                {
-                    
-                    return View(db.Turnos.AsNoTracking().Where(p => DbFunctions.TruncateTime(p.Horario) == DateTime.Today.Date).ToList());
-                }
+ 
+                    return View(db.Turnos.Where(p => DbFunctions.TruncateTime(p.Horario) == DateTime.Today.Date).ToList());
+                
             }
             else
             {
