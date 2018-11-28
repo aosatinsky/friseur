@@ -8,6 +8,7 @@ using System.Web.Mvc;
 using TurnosPeluqueria.Datos;
 using TurnosPeluqueria.Models;
 using PagedList;
+using TurnosPeluqueria.Servicios;
 
 namespace TurnosPeluqueria.Controllers
 {
@@ -135,6 +136,10 @@ namespace TurnosPeluqueria.Controllers
                         };
                         db.Turnos.Add(turno);
                         db.SaveChanges();
+                        var email = db.Clientes.Where(u => u.User == usuario).First().Email;
+                        var nombre = db.Clientes.Where(u => u.User == usuario).First().Nombre;
+
+                       EmailAPI.EnviarEmailAsync(email, nombre, turno.Horario,peluquero.Nombre);
                         
                         return RedirectToAction("Index");
                     }

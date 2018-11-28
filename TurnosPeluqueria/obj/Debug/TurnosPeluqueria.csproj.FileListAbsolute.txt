@@ -301,3 +301,4 @@ C:\Users\ginon\Desktop\Distri\friseur\TurnosPeluqueria\obj\Debug\TurnosPeluqueri
 C:\Users\ginon\Desktop\Distri\friseur\TurnosPeluqueria\obj\Debug\TurnosPeluqueria.csproj.CopyComplete
 C:\Users\ginon\Desktop\Distri\friseur\TurnosPeluqueria\obj\Debug\TurnosPeluqueria.dll
 C:\Users\ginon\Desktop\Distri\friseur\TurnosPeluqueria\obj\Debug\TurnosPeluqueria.pdb
+C:\Users\Agustin Osatinsky\Documents\Proyectos\friseur\TurnosPeluqueria\bin\Mailjet.Client.dll
