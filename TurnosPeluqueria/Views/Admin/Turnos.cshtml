@@ -1,4 +1,5 @@
-﻿@model IEnumerable<TurnosPeluqueria.Models.Turno>
+﻿@model PagedList.IPagedList<TurnosPeluqueria.Models.Turno>
+@using PagedList.Mvc;
 
 @{
     Layout = null;
@@ -15,6 +16,7 @@
     <link href="~/Content/IndexStyle.css" rel="stylesheet" media="screen">
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Frank+Ruhl+Libre" rel="stylesheet">
+    <link href="~/Content/PagedList.css" rel="stylesheet">
 </head>
 <body>
 
@@ -46,6 +48,12 @@
                 <li class="nav-item active">
                     <a class="nav-link" href="/Admin/Turnos">Admin<span class="sr-only">(current)</span></a>
                 </li>
+
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li class="nav-item">
+                    <a class="btn btn-primary dropright" href="/Admin/Logout" role="button">Cerrar Sesion</a>
+                </li>
             </ul>
         </div>
     </nav>
@@ -60,7 +68,7 @@
                     Cliente
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.Cliente.Dni)
+                   DNI
                 </th>
                 <th>
                     Peluquero
@@ -73,25 +81,34 @@
 
             @foreach (var item in Model)
             {
-            <tr>
-                <td class="align-midd">
-                <td>
-                    @Html.DisplayFor(modelItem => item.Cliente.Nombre)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Cliente.Dni)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Peluquero.Nombre)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Horario)
-                </td>
-            </tr>
+                <tr>
+                    <td class="align-midd">
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Cliente.Nombre)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Cliente.Dni)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Peluquero.Nombre)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Horario)
+                    </td>
+                </tr>
             }
 
         </table>
     </div>
+
+    <div class="row">
+        <div class="col-12 col-centered">
+            <nav aria-label="Page navigation">
+                @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
+            </nav>
+        </div>
+    </div>
+
     <div class="container">
 
         <hr>
