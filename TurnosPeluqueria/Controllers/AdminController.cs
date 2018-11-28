@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PagedList;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
@@ -13,12 +14,14 @@ namespace TurnosPeluqueria.Controllers
     {
         PeluqueriaContexto db = new PeluqueriaContexto();
         // GET: Admin
-        public ActionResult Turnos()
+        public ActionResult Turnos(int? page)
         {
             if (Session["PeluqeroId"] != null)
             {
- 
-                    return View(db.Turnos.Where(p => DbFunctions.TruncateTime(p.Horario) == DateTime.Today.Date).ToList());
+                var turnos = db.Turnos.Where(p => DbFunctions.TruncateTime(p.Horario) == DateTime.Today.Date).OrderByDescending(i => i.Horario); ;
+
+                int pageNumber = (page ?? 1);
+                return View(turnos.ToPagedList(pageNumber, 10));
                 
             }
             else
