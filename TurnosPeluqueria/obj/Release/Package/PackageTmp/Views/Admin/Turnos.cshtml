@@ -8,46 +8,104 @@
 
 <html>
 <head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Turnos</title>
+    <title>Friseur - Barber Shop - Turnos</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap -->
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="~/Content/IndexStyle.css" rel="stylesheet" media="screen">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Frank+Ruhl+Libre" rel="stylesheet">
 </head>
 <body>
-@*  <p>
-        @Html.ActionLink("Create New", "Create")
-    </p> *@
-    <table class="table">
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Cliente.Nombre)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Peluquero.Nombre)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Horario)
-            </th>
-            <th></th>
-        </tr>
-    
-    @foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Cliente.Nombre)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Peluquero.Nombre)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Horario)
-            </td>
-  @*  <!-- <td>
-                @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-                @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-                @Html.ActionLink("Delete", "Delete", new { id=item.Id })
-            </td> -->*@
-        </tr>
-    }
-    
-    </table>
+
+    <header>
+        <div class="overlay"></div>
+        <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
+            <source src="~/videos/byn.mp4" type="video/mp4">
+        </video>
+        <div class="container h-100">
+            <div class="d-flex text-center h-100">
+                <img src="~/img/logo.png" class="img-fluid mx-auto d-block" alt="logo" style="width:500px;height:500px;">
+            </div>
+        </div>
+    </header>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/Home/Index">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/Turnos/Index">Turnos</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/Admin/Turnos">Admin<span class="sr-only">(current)</span></a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+
+    <div class="container">
+        <table class="table">
+
+            <tr>
+                <td class="align-midd">
+                <th>
+                    Cliente
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Cliente.Dni)
+                </th>
+                <th>
+                    Peluquero
+                </th>
+                <th>
+                    Fecha y Hora
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+            <tr>
+                <td class="align-midd">
+                <td>
+                    @Html.DisplayFor(modelItem => item.Cliente.Nombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Cliente.Dni)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Peluquero.Nombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Horario)
+                </td>
+            </tr>
+            }
+
+        </table>
+    </div>
+    <div class="container">
+
+        <hr>
+        <div class="text-center center-block">
+            <p class="txt-railway">- 2018 -</p>
+            <br />
+            <a href="#"><i id="social-fb" class="fa fa-facebook-square fa-3x social"></i></a>
+            <a href="#"><i id="social-tw" class="fa fa-twitter-square fa-3x social"></i></a>
+            <a href="#"><i id="social-gp" class="fa fa-google-plus-square fa-3x social"></i></a>
+            <a href="#"><i id="social-em" class="fa fa-envelope-square fa-3x social"></i></a>
+        </div>
+        <hr>
+    </div>
+    <script src="~/Scripts/jquery-3.0.0.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
 </body>
 </html>

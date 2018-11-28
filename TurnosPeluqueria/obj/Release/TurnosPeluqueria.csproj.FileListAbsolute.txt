@@ -198,3 +198,4 @@ C:\Users\Agustin Osatinsky\Documents\Proyectos\friseur\TurnosPeluqueria\obj\Rele
 C:\Users\Agustin Osatinsky\Documents\Proyectos\friseur\TurnosPeluqueria\obj\Release\TurnosPeluqueria.csproj.CopyComplete
 C:\Users\Agustin Osatinsky\Documents\Proyectos\friseur\TurnosPeluqueria\obj\Release\TurnosPeluqueria.dll
 C:\Users\Agustin Osatinsky\Documents\Proyectos\friseur\TurnosPeluqueria\obj\Release\TurnosPeluqueria.pdb
+C:\Users\Agustin Osatinsky\Documents\Proyectos\friseur\TurnosPeluqueria\bin\Mailjet.Client.dll
