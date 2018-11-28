@@ -54,5 +54,22 @@ namespace TurnosPeluqueria.Controllers
             }
             return View();
         }
+
+        public ActionResult Logout()
+        {
+            if (Session["PeluqeroId"] != null)
+            {
+                Session.Clear();
+                Session.Abandon();
+                return RedirectToAction("Login");
+            }
+            else
+            {
+                return RedirectToAction("Login");
+            }
+
+        }
+
+
     }
 }
