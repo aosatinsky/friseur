@@ -180,21 +180,7 @@ C:\Users\Agustin Osatinsky\Documents\Proyectos\friseur\TurnosPeluqueria\obj\Debu
 C:\Users\Agustin Osatinsky\Documents\Proyectos\friseur\TurnosPeluqueria\obj\Debug\TurnosPeluqueria.dll
 C:\Users\Agustin Osatinsky\Documents\Proyectos\friseur\TurnosPeluqueria\obj\Debug\TurnosPeluqueria.pdb
 C:\Users\Agustin Osatinsky\Documents\Proyectos\friseur\TurnosPeluqueria\obj\Debug\TurnosPeluqueria.csprojAssemblyReference.cache
-C:\Users\Agustin Osatinsky\Documents\Proyectos\friseur\TurnosPeluqueria\bin\Google.Apis.Auth.dll
-C:\Users\Agustin Osatinsky\Documents\Proyectos\friseur\TurnosPeluqueria\bin\Google.Apis.Auth.PlatformServices.dll
-C:\Users\Agustin Osatinsky\Documents\Proyectos\friseur\TurnosPeluqueria\bin\Google.Apis.Calendar.v3.dll
-C:\Users\Agustin Osatinsky\Documents\Proyectos\friseur\TurnosPeluqueria\bin\Google.Apis.Core.dll
-C:\Users\Agustin Osatinsky\Documents\Proyectos\friseur\TurnosPeluqueria\bin\Google.Apis.dll
-C:\Users\Agustin Osatinsky\Documents\Proyectos\friseur\TurnosPeluqueria\bin\Google.Apis.PlatformServices.dll
 C:\Users\Agustin Osatinsky\Documents\Proyectos\friseur\TurnosPeluqueria\bin\Newtonsoft.Json.dll
-C:\Users\Agustin Osatinsky\Documents\Proyectos\friseur\TurnosPeluqueria\bin\Google.Apis.pdb
-C:\Users\Agustin Osatinsky\Documents\Proyectos\friseur\TurnosPeluqueria\bin\Google.Apis.xml
-C:\Users\Agustin Osatinsky\Documents\Proyectos\friseur\TurnosPeluqueria\bin\Google.Apis.Auth.pdb
-C:\Users\Agustin Osatinsky\Documents\Proyectos\friseur\TurnosPeluqueria\bin\Google.Apis.Auth.xml
-C:\Users\Agustin Osatinsky\Documents\Proyectos\friseur\TurnosPeluqueria\bin\Google.Apis.Calendar.v3.pdb
-C:\Users\Agustin Osatinsky\Documents\Proyectos\friseur\TurnosPeluqueria\bin\Google.Apis.Calendar.v3.xml
-C:\Users\Agustin Osatinsky\Documents\Proyectos\friseur\TurnosPeluqueria\bin\Google.Apis.Core.pdb
-C:\Users\Agustin Osatinsky\Documents\Proyectos\friseur\TurnosPeluqueria\bin\Google.Apis.Core.xml
 C:\Users\Agustin Osatinsky\Documents\Proyectos\friseur\TurnosPeluqueria\bin\Newtonsoft.Json.xml
 C:\Users\Agustin Osatinsky\Documents\Proyectos\friseur\TurnosPeluqueria\obj\Debug\TurnosPeluqueria.Migrations.InitialCreate.resources
 C:\Users\Agustin Osatinsky\Documents\Proyectos\friseur\TurnosPeluqueria\obj\Debug\TurnosPeluqueria.csproj.GenerateResource.cache
@@ -302,3 +288,4 @@ C:\Users\ginon\Desktop\Distri\friseur\TurnosPeluqueria\obj\Debug\TurnosPeluqueri
 C:\Users\ginon\Desktop\Distri\friseur\TurnosPeluqueria\obj\Debug\TurnosPeluqueria.dll
 C:\Users\ginon\Desktop\Distri\friseur\TurnosPeluqueria\obj\Debug\TurnosPeluqueria.pdb
 C:\Users\Agustin Osatinsky\Documents\Proyectos\friseur\TurnosPeluqueria\bin\Mailjet.Client.dll
+C:\Users\Agustin Osatinsky\Documents\Proyectos\friseur\TurnosPeluqueria\bin\Newtonsoft.Json.pdb

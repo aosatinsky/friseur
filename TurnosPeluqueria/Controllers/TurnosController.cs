@@ -117,14 +117,19 @@ namespace TurnosPeluqueria.Controllers
         [HttpGet]
         public ActionResult NuevoTurno(int horario, int userID, int peluqueroID)
         {
+            var FeriadosAPI = new FeriadosAPI();
+
+
             var usuario = Session["User"].ToString();
             if (Session["UserId"] != null && Session["UserId"].ToString() == userID.ToString())
             {
                 using (PeluqueriaContexto db = new PeluqueriaContexto())
                 {
+                  
                     var misTurnos = db.Turnos.Where(u => u.Cliente.User == usuario
             && DbFunctions.TruncateTime(u.Horario) == DateTime.Today.Date).ToList();
-                    if (misTurnos.Count() == 0)
+                    var feriado = FeriadosAPI.EsFeriado();
+                    if (misTurnos.Count() == 0 &&  feriado == false)
                     {
                         var cliente = db.Clientes.Where(u => u.Id == userID).First();
                         var peluquero = db.Peluqueros.Where(u => u.Id == peluqueroID).First();
@@ -141,6 +146,11 @@ namespace TurnosPeluqueria.Controllers
 
                        EmailAPI.EnviarEmailAsync(email, nombre, turno.Horario,peluquero.Nombre);
                         
+                        return RedirectToAction("Index");
+                    }
+                    else if (feriado)
+                    {
+                        TempData["feriado"] = "si";
                         return RedirectToAction("Index");
                     }
                     else
